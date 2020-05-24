@@ -1,9 +1,15 @@
 <mat-toolbar class="footer">
-  <span>
+  <span *ngIf="titleHistory" class="path">
+    {{ titleHistory }}
+  </span>
+  <span class="sign">
     Desenvolvido com
     <i class="material-icons red v-middle">
       favorite
     </i>
-    por <strong><span class="red">Ricardo</span> Salles</strong>
+    por
+    <strong
+      ><span class="red">R</span>icardo <span class="red">S</span>alles</strong
+    >
   </span>
 </mat-toolbar>

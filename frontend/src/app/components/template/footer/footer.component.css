@@ -3,10 +3,21 @@
   bottom: 0;
 
   display: flex;
-  justify-content: flex-end;
+  width: 100%;
+  margin-left: 200px;
+  flex: 0.5fr 0.5fr;
 }
 
-.footer > span {
+.sign {
+  width: 40%;
   font-weight: 300;
   font-size: 1.1rem;
+  text-align: right;
+}
+
+.path {
+  width: 40%;
+  font-weight: 300;
+  font-size: 0.7rem;
+  text-align: left;
 }

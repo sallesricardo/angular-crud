@@ -3,6 +3,7 @@ import { ProductService } from "../product.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Product } from "../product.model";
 import { Route } from "@angular/compiler/src/core";
+import { HeaderService } from "../../template/header/header.service";
 
 @Component({
   selector: "app-product-update",
@@ -15,14 +16,23 @@ export class ProductUpdateComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private headerService: HeaderService
+  ) {
+    headerService.headerData = {
+      title: "Editar Produto",
+      icon: "edit",
+      routeUrl: "/products",
+    };
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("id");
-    this.productService
-      .readById(id)
-      .subscribe((product) => (this.product = product));
+    this.productService.readById(id).subscribe((product) => {
+      this.product = product;
+      this.headerService.headerData.title =
+        "Editar Produto - " + this.product.name;
+    });
   }
 
   updateProduct(): void {
